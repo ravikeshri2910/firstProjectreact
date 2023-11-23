@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React, {useState} from 'react'
+
+import ProductForm from './components/NewProducts/ProductForm';
+import ProductDetails from './components/Products/ProductDetails';
+import Products from './components/Products/Products';
+
+const DUMMY_DATA = []
 
 function App() {
+
+  const [product , setProduct] = useState(DUMMY_DATA)
+
+  const addProductData = (newProduct )=>{
+    console.log('newProduct' + JSON.stringify(newProduct))
+
+    setProduct((DUMMY_DATA)=>{
+      return[newProduct, ...DUMMY_DATA]
+    })
+  }
+
+  console.log(product)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ProductForm onProductData = {addProductData}></ProductForm>
+      <Products items = {product}></Products>
+    </>
   );
 }
 

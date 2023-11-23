@@ -1,0 +1,6 @@
+
+.form{
+    border: 2px solid red;
+    width: 40%;
+    display: grid;
+}
