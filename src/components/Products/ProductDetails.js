@@ -5,7 +5,7 @@ const ProductDetails = (props) =>{
 
     const deleteHandler = (event) =>{
         console.log('h')
-    }
+        event.target.parentElement.remove();    }
     
     return( 
         
